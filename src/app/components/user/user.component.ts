@@ -15,7 +15,7 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.fetchMovie()
+    this.fetchMovie();
   }
 
   fetchMovie() {
@@ -42,10 +42,10 @@ export class UserComponent implements OnInit {
   }
 
   updateMovie(movie) {
-    console.log('testing');
-    this.dataService.updateMovie(movie.id).subscribe(movie => {
+    console.log('movie updated ...');
+    movie.isEdit = !movie.isEdit;
+    this.dataService.updateMovie(movie).subscribe(movie => {
       console.log(movie);
-    })
+    });
   }
-
 }

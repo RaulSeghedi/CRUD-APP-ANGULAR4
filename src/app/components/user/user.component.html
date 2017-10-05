@@ -1,15 +1,15 @@
 <div class="movieActions">
   <div>
     <h1>Add movie</h1>
-    <div>
+    <div class="movieDetails">
       <label>Title</label><br>
       <input #title type="text">
     </div>
-    <div style="margin-bottom: 10px">
+    <div class="movieDetails">
       <label>Description</label><br>
       <textarea #desc type="text"></textarea>
     </div>
-    <button (click)="addMovie(title.value, desc.value)">ENTER</button>
+    <button class="movieDetails" (click)="addMovie(title.value, desc.value)">ENTER</button>
   </div>
 </div>
 
@@ -27,13 +27,15 @@
     </div>
     <br>
     <div *ngIf="post.isEdit">
-      <div>
+      <h1>Update movie: {{post.title}}</h1>
+      <div class="movieDetails">
         <label>Title: </label><br>
         <input type="text" [(ngModel)]="post.title">
       </div>
-      <div>
+      <div class="movieDetails">
         <label>Description: </label><br>
         <textarea type="text" [(ngModel)]="post.description"></textarea>
+        <button (click)="updateMovie(post)">SAVE</button>
       </div>
     </div>
 
